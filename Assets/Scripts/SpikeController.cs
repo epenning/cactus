@@ -8,7 +8,8 @@ public class SpikeController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		parentGameObject = transform.parent.parent.gameObject;
-
+		// disable collision originally
+		gameObject.GetComponent<Collider2D>().enabled = false;
 	}
 	
 	// Update is called once per frame

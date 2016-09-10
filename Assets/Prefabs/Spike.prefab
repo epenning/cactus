@@ -37,7 +37,7 @@ GameObject:
   - 4: {fileID: 4000013815952092}
   - 60: {fileID: 60000012835231624}
   - 114: {fileID: 114000010381485278}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

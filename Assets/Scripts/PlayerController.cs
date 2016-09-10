@@ -48,16 +48,17 @@ public class PlayerController : MonoBehaviour {
 			if (!spikesExtended)
 				ExtendSpikes ();
 		}
-
 	}
 
 	void ExtendSpikes () {
 		spikesExtended = true;
 		foreach (Transform child in transform) {
 			var sprite = child.GetChild (0);
-			iTween.MoveBy (sprite.gameObject, iTween.Hash("x", 0f, "y", 0.5f, "z", 0f, "oncomplete", "RetractSpikes", "oncompletetarget", gameObject, "time", spikeExpandSpeed ));
-		}
-	}
+			// enable spike collisions while extended
+			sprite.GetComponent<Collider2D> ().enabled = true;
+            iTween.MoveBy(sprite.gameObject, iTween.Hash("x", 0f, "y", 0.5f, "z", 0f, "oncomplete", "RetractSpikes", "oncompletetarget", gameObject, "time", spikeExpandSpeed));
+        }
+    }
 
 	void RetractSpikes () {
 		if (!spikesRetracting) {
@@ -70,7 +71,15 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void OnRetractSpikesComplete() {
-		spikesExtended = false;
-		spikesRetracting = false;
+		if (spikesRetracting) {
+			spikesExtended = false;
+			spikesRetracting = false;
+
+			// disable spike collisions while retracted
+			foreach (Transform child in transform) {
+				var sprite = child.GetChild (0);
+				sprite.GetComponent<Collider2D> ().enabled = false;
+			}
+		}
 	}
 }
