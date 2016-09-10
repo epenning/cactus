@@ -101,6 +101,7 @@ GameObject:
   - 222: {fileID: 136468871}
   - 114: {fileID: 136468870}
   - 114: {fileID: 136468869}
+  - 114: {fileID: 136468872}
   m_Layer: 5
   m_Name: Back Button
   m_TagString: Untagged
@@ -201,6 +202,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 136468867}
+--- !u!114 &136468872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 136468867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffa7ff7b14c544669b8cb07d0a72e982, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &716966800
 Prefab:
   m_ObjectHideFlags: 0
