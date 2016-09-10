@@ -10,10 +10,22 @@ public class PlayerController : MonoBehaviour {
 
 	bool spikesExtended = false;
 
+    public int numSpikes;
+
+    public GameObject spikePrefab;
+
 	// Use this for initialization
 	void Start () {
 		player = gameObject;
 		rbody = GetComponent<Rigidbody2D>();
+
+        float spikeSpacing = 360f / numSpikes;
+        for(int i = 0; i < numSpikes; i++)
+        {
+            GameObject newSpike = GameObject.Instantiate(spikePrefab);
+            newSpike.transform.rotation = Quaternion.Euler(new Vector3(0, 0, i * spikeSpacing));
+            newSpike.transform.parent = transform;
+        }
 	}
 
 	// Update is called once per frame
