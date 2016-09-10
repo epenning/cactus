@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour {
 
     public GameObject spikePrefab;
 
+    public float spikeExpandSpeed;
+
 	// Use this for initialization
 	void Start () {
 		player = gameObject;
