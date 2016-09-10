@@ -2,22 +2,22 @@
 using System.Collections;
 using UnityEngine.UI;
 
+[System.Serializable]
+public class LobbyButton {
+
+	public Button button;
+	public Color color;
+	public bool selected;
+
+
+}
+
 public class LobbyController : MonoBehaviour {
 
-	public Button button1;
-	public Button button2;
-	public Button button3;
-	public Button button4;
-
-	public Color p1color;
-	public Color p2color;
-	public Color p3color;
-	public Color p4color;
-
-	private bool b1selected;
-	private bool b2selected;
-	private bool b3selected;
-	private bool b4selected;
+	public LobbyButton b1;
+	public LobbyButton b2;
+	public LobbyButton b3;
+	public LobbyButton b4;
 
 
 	// Use this for initialization
@@ -27,14 +27,27 @@ public class LobbyController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown (KeyCode.X)) {
-			if (!b1selected) {
-				button1.image.color = p1color;
-				b1selected = true;
-			} else {
-				button1.image.color = Color.white;
-				b1selected = false;
-			}
+		if (Input.GetAxis ("J1_ButtonX") || Input.GetKeyDown (KeyCode.X)) {
+			ToggleButton (b1);
+		}
+		if (Input.GetAxis ("J2_ButtonX") || Input.GetKeyDown (KeyCode.S)) {
+			ToggleButton (b2);
+		}
+		if (Input.GetAxis ("J3_ButtonX") || Input.GetKeyDown (KeyCode.D)) {
+			ToggleButton (b3);
+		}
+		if (Input.GetAxis ("J4_ButtonX") || Input.GetKeyDown (KeyCode.C)) {
+			ToggleButton (b4);
+		}
+	}
+
+	void ToggleButton (LobbyButton b) {
+		if (!b.selected) {
+			b.button.image.color = b.color;
+			b.selected = true;
+		} else {
+			b.button.image.color = Color.white;
+			b.selected = false;
 		}
 	}
 }
