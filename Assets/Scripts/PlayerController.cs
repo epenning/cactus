@@ -4,17 +4,23 @@ using System.Collections;
 public class PlayerController : MonoBehaviour {
 
 	public GameObject player;
+	public GameObject rbody;
+
+	public float speed = 0f;
 
 	// Use this for initialization
 	void Start () {
 		player = gameObject;
+		rbody = GetComponent<Rigidbody2D>();
 	}
 
 	// FixedUpdate called once per physics tick
 	void FixedUpdate() {
 		// Movement
-		var x = Input.GetAxis("Horizontal") * Time.deltaTime;
-		var z = Input.GetAxis("Vertical") * Time.deltaTime;
+		var vx = Input.GetAxis("Horizontal") * speed;
+		var vy = Input.GetAxis("Vertical") * speed;
+
+		rbody.velocity = new Vector2 (vx, vy);
 	}
 
 	// Update is called once per frame
