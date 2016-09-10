@@ -8,7 +8,7 @@ public class LobbyButton {
 	public Button button;
 	public Color color;
 	public bool selected;
-
+    public bool pressed;
 
 }
 
@@ -27,19 +27,31 @@ public class LobbyController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown ("joystick button 0")) {
-			ToggleButton (b1);
-		}
-		//if (Input.GetAxis ("J2_ButtonX") || Input.GetKeyDown (KeyCode.S)) {
-		//	ToggleButton (b2);
-		//}
-		//if (Input.GetAxis ("J3_ButtonX") || Input.GetKeyDown (KeyCode.D)) {
-		//	ToggleButton (b3);
-		//}
-		//if (Input.GetAxis ("J4_ButtonX") || Input.GetKeyDown (KeyCode.C)) {
-		//	ToggleButton (b4);
-		//}
-	}
+
+
+        if(Input.GetKeyDown("joystick 1 button 2"))
+        {
+            ToggleButton(b1);
+        }
+
+        if (Input.GetKeyDown("joystick 2 button 2"))
+        {
+            ToggleButton(b2);
+        }
+
+        if (Input.GetKeyDown("joystick 3 button 2"))
+        {
+            ToggleButton(b1);
+        }
+
+        if (Input.GetKeyDown("joystick 4 button 2"))
+        {
+            ToggleButton(b2);
+        }
+
+
+
+    }
 
 	void ToggleButton (LobbyButton b) {
 		if (!b.selected) {
