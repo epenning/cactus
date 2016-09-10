@@ -6,6 +6,11 @@ public class InputTest : MonoBehaviour {
     float xDir;
     float yDir;
 
+    public bool aIsPressed;
+    public bool xIsPressed;
+
+    public int playerNum;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -20,14 +25,30 @@ public class InputTest : MonoBehaviour {
 
         //Debug.Log(unitDir);
 
-        if(Input.GetKeyDown(KeyCode.JoystickButton0))
+        if(Input.GetAxisRaw("J" + playerNum + "_ButtonA") > 0) 
         {
-            Debug.Log("pressed A!");
+            if(!aIsPressed)
+            {
+                //Debug.Log("pressed A! " + Input.GetAxisRaw("J" + playerNum+ "_ButtonA"));
+                aIsPressed = true;
+            }
+
+        } else
+        {
+            aIsPressed = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.JoystickButton2))
+        if (Input.GetAxisRaw("J" + playerNum + "_ButtonX") > 0)
         {
-            Debug.Log("pressed X!");
+            if (!xIsPressed)
+            {
+                //Debug.Log("pressed X! " + Input.GetAxisRaw("J1_ButtonX"));
+                xIsPressed = true;
+            }
+        }
+        else
+        {
+            xIsPressed = false;
         }
     }
 }
