@@ -24,8 +24,13 @@ public class CactusController : MonoBehaviour {
 		}
 	}
 
-	protected void ExtendSpikes () {
-		Debug.Log ("test");
+	public void ExtendSpikes () {
+
+        if (spikesExtended)
+            return;
+
+        Debug.Log ("test");
+
 
 		spikesExtended = true;
 		foreach (Transform child in transform) {
@@ -33,7 +38,7 @@ public class CactusController : MonoBehaviour {
 				var sprite = child.GetChild (0);
 				// enable spike collisions while extended
 				sprite.GetComponent<Collider2D> ().enabled = true;
-				iTween.MoveBy (sprite.gameObject, iTween.Hash ("x", 0f, "y", 0.5f, "z", 0f, "oncomplete", "RetractSpikes", "oncompletetarget", gameObject, "time", spikeExpandSpeed));
+				iTween.MoveBy (sprite.gameObject, iTween.Hash ("x", 0f, "y", 3f, "z", 0f, "oncomplete", "RetractSpikes", "oncompletetarget", gameObject, "time", spikeExpandSpeed));
 			} else if (child.gameObject.tag == "Cactus") {
 				Debug.Log ("cactus");
 				child.GetComponent<CactusController> ().ExtendSpikes ();
@@ -47,7 +52,7 @@ public class CactusController : MonoBehaviour {
 			foreach (Transform child in transform) {
 				if (child.gameObject.tag == "Spike") {
 					var sprite = child.GetChild (0);
-					iTween.MoveBy (sprite.gameObject, iTween.Hash ("x", 0f, "y", -0.5f, "z", 0f, "oncomplete", "OnRetractSpikesComplete", "oncompletetarget", gameObject, "time", spikeRetractSpeed));
+					iTween.MoveBy (sprite.gameObject, iTween.Hash ("x", 0f, "y", -3f, "z", 0f, "oncomplete", "OnRetractSpikesComplete", "oncompletetarget", gameObject, "time", spikeRetractSpeed));
 			
 				}
 			}
