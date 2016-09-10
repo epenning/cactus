@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Cactus
   - Spike
+  - Powerup
   layers:
   - Default
   - TransparentFX

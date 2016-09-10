@@ -9,6 +9,7 @@ public class CactusController : MonoBehaviour {
 	public int numSpikes;
 
 	public GameObject spikePrefab;
+	public GameObject projectilePrefab;
 
 	public float spikeExpandSpeed;
 	public float spikeRetractSpeed;
@@ -56,6 +57,15 @@ public class CactusController : MonoBehaviour {
 				var sprite = child.GetChild (0);
 				sprite.GetComponent<Collider2D> ().enabled = false;
 			}
+		}
+	}
+
+	protected void OnTriggerEnter2D(Collider2D coll) {
+		if (coll.gameObject.tag == "Powerup") {
+			Debug.Log ("powerup pickup");
+			// set player to having the powerup
+			transform.GetComponentInParent<PlayerController>().powerup = true;
+			// disable the powerup !!
 		}
 	}
 }
