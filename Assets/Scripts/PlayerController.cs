@@ -16,9 +16,10 @@ public class PlayerController : MonoBehaviour {
     public GameObject spikePrefab;
 
     public float spikeExpandSpeed;
+    public float spikeRetractSpeed;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		player = gameObject;
 		rbody = GetComponent<Rigidbody2D>();
 
@@ -55,16 +56,16 @@ public class PlayerController : MonoBehaviour {
 			var sprite = child.GetChild (0);
 			// enable spike collisions while extended
 			sprite.GetComponent<Collider2D> ().enabled = true;
-			iTween.MoveBy (sprite.gameObject, iTween.Hash("x", 0f, "y", 0.5f, "z", 0f, "oncomplete", "RetractSpikes", "oncompletetarget", gameObject, "time", 1));
-		}
-	}
+            iTween.MoveBy(sprite.gameObject, iTween.Hash("x", 0f, "y", 0.5f, "z", 0f, "oncomplete", "RetractSpikes", "oncompletetarget", gameObject, "time", spikeExpandSpeed));
+        }
+    }
 
 	void RetractSpikes () {
 		if (!spikesRetracting) {
 			spikesRetracting = true;
 			foreach (Transform child in transform) {
 				var sprite = child.GetChild (0);
-				iTween.MoveBy (sprite.gameObject, iTween.Hash ("x", 0f, "y", -0.5f, "z", 0f, "oncomplete", "OnRetractSpikesComplete", "oncompletetarget", gameObject, "time", 1));
+				iTween.MoveBy (sprite.gameObject, iTween.Hash ("x", 0f, "y", -0.5f, "z", 0f, "oncomplete", "OnRetractSpikesComplete", "oncompletetarget", gameObject, "time", spikeRetractSpeed));
 			}
 		}
 	}
