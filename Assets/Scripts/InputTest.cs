@@ -18,6 +18,16 @@ public class InputTest : MonoBehaviour {
 
         Vector2 unitDir = new Vector2(xDir, yDir).normalized;
 
-        Debug.Log(unitDir);
-	}
+        //Debug.Log(unitDir);
+
+        if(Input.GetKeyDown(KeyCode.JoystickButton0))
+        {
+            Debug.Log("pressed A!");
+        }
+
+        if (Input.GetKeyDown(KeyCode.JoystickButton2))
+        {
+            Debug.Log("pressed X!");
+        }
+    }
 }
