@@ -34,15 +34,10 @@ public class CactusController : MonoBehaviour {
 
 		spikesExtended = true;
 		foreach (Transform child in transform) {
-			if (child.gameObject.tag == "Spike") {
-				var sprite = child.GetChild (0);
-				// enable spike collisions while extended
-				sprite.GetComponent<Collider2D> ().enabled = true;
-				iTween.MoveBy (sprite.gameObject, iTween.Hash ("x", 0f, "y", 3f, "z", 0f, "oncomplete", "RetractSpikes", "oncompletetarget", gameObject, "time", spikeExpandSpeed));
-			} else if (child.gameObject.tag == "Cactus") {
-				Debug.Log ("cactus");
-				child.GetComponent<CactusController> ().ExtendSpikes ();
-			}
+			var sprite = child.GetChild (0);
+			// enable spike collisions while extended
+			sprite.GetComponent<Collider2D> ().enabled = true;
+			iTween.MoveBy (sprite.gameObject, iTween.Hash ("x", 0f, "y", 0.5f, "z", 0f, "oncomplete", "RetractSpikes", "oncompletetarget", gameObject, "time", spikeExpandSpeed));
 		}
 	}
 
@@ -50,11 +45,9 @@ public class CactusController : MonoBehaviour {
 		if (!spikesRetracting) {
 			spikesRetracting = true;
 			foreach (Transform child in transform) {
-				if (child.gameObject.tag == "Spike") {
-					var sprite = child.GetChild (0);
-					iTween.MoveBy (sprite.gameObject, iTween.Hash ("x", 0f, "y", -3f, "z", 0f, "oncomplete", "OnRetractSpikesComplete", "oncompletetarget", gameObject, "time", spikeRetractSpeed));
-			
-				}
+				var sprite = child.GetChild (0);
+				iTween.MoveBy (sprite.gameObject, iTween.Hash ("x", 0f, "y", -0.5f, "z", 0f, "oncomplete", "OnRetractSpikesComplete", "oncompletetarget", gameObject, "time", spikeRetractSpeed));
+
 			}
 		}
 	}
@@ -66,10 +59,8 @@ public class CactusController : MonoBehaviour {
 
 			// disable spike collisions while retracted
 			foreach (Transform child in transform) {
-				if (child.gameObject.tag == "Spike") {
-					var sprite = child.GetChild (0);
-					sprite.GetComponent<Collider2D> ().enabled = false;
-				}
+				var sprite = child.GetChild (0);
+				sprite.GetComponent<Collider2D> ().enabled = false;
 			}
 		}
 	}
