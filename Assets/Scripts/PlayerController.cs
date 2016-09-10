@@ -4,7 +4,7 @@ using System.Collections;
 public class PlayerController : MonoBehaviour {
 
 	public GameObject player;
-	public GameObject rbody;
+	public Rigidbody2D rbody;
 
 	public float speed = 0f;
 
@@ -14,17 +14,14 @@ public class PlayerController : MonoBehaviour {
 		rbody = GetComponent<Rigidbody2D>();
 	}
 
-	// FixedUpdate called once per physics tick
-	void FixedUpdate() {
+	// Update is called once per frame
+	void Update () {
+		Debug.Log ("Update");
+
 		// Movement
 		var vx = Input.GetAxis("Horizontal") * speed;
 		var vy = Input.GetAxis("Vertical") * speed;
 
 		rbody.velocity = new Vector2 (vx, vy);
-	}
-
-	// Update is called once per frame
-	void Update () {
-	
 	}
 }
