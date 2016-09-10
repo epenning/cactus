@@ -27,18 +27,18 @@ public class LobbyController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetAxis ("J1_ButtonX") || Input.GetKeyDown (KeyCode.X)) {
+		if (Input.GetKeyDown ("joystick button 0")) {
 			ToggleButton (b1);
 		}
-		if (Input.GetAxis ("J2_ButtonX") || Input.GetKeyDown (KeyCode.S)) {
-			ToggleButton (b2);
-		}
-		if (Input.GetAxis ("J3_ButtonX") || Input.GetKeyDown (KeyCode.D)) {
-			ToggleButton (b3);
-		}
-		if (Input.GetAxis ("J4_ButtonX") || Input.GetKeyDown (KeyCode.C)) {
-			ToggleButton (b4);
-		}
+		//if (Input.GetAxis ("J2_ButtonX") || Input.GetKeyDown (KeyCode.S)) {
+		//	ToggleButton (b2);
+		//}
+		//if (Input.GetAxis ("J3_ButtonX") || Input.GetKeyDown (KeyCode.D)) {
+		//	ToggleButton (b3);
+		//}
+		//if (Input.GetAxis ("J4_ButtonX") || Input.GetKeyDown (KeyCode.C)) {
+		//	ToggleButton (b4);
+		//}
 	}
 
 	void ToggleButton (LobbyButton b) {
