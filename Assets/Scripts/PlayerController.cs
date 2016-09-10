@@ -16,12 +16,13 @@ public class PlayerController : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		Debug.Log ("Update");
-
 		// Movement
-		var vx = Input.GetAxis("Horizontal") * speed;
-		var vy = Input.GetAxis("Vertical") * speed;
-
-		rbody.velocity = new Vector2 (vx, vy);
+		var vx = Input.GetAxis("Horizontal");
+		var vy = Input.GetAxis("Vertical");
+		var velocity = new Vector2 (vx, vy);
+		if (velocity.magnitude > 1)
+			velocity.Normalize ();
+		
+		rbody.velocity = velocity * speed;
 	}
 }
