@@ -5,6 +5,15 @@ public class PlayerController : CactusController {
 
 	public float speed = 0f;
 
+	public Rigidbody2D rbody;
+
+	// Use this for initialization
+	protected void Start () {
+		rbody = GetComponent<Rigidbody2D>();
+
+		base.Start ();
+	}
+
 	// Update is called once per frame
 	void Update () {
 		// Movement
