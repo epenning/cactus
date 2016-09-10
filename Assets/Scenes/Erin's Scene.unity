@@ -272,10 +272,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   rbody: {fileID: 0}
-  speed: 5
+  spikesExtended: 0
+  spikesRetracting: 0
   numSpikes: 16
   spikePrefab: {fileID: 1000013834746530, guid: 84ea40141b846694f91a13327034517c,
     type: 2}
+  spikeExpandSpeed: 1
+  spikeRetractSpeed: 1
+  speed: 5
 --- !u!58 &1392256699
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -331,10 +335,6 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1000013834746530, guid: 84ea40141b846694f91a13327034517c, type: 2}
       propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000012435707292, guid: 84ea40141b846694f91a13327034517c, type: 2}
-      propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
