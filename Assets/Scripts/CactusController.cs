@@ -14,6 +14,7 @@ public class CactusController : MonoBehaviour {
 	public GameObject spikePrefab;
 
 	public float spikeExpandSpeed;
+	public float spikeRetractSpeed;
 
 	// Use this for initialization
 	protected void Start () {
@@ -35,7 +36,7 @@ public class CactusController : MonoBehaviour {
 			var sprite = child.GetChild (0);
 			// enable spike collisions while extended
 			sprite.GetComponent<Collider2D> ().enabled = true;
-			iTween.MoveBy (sprite.gameObject, iTween.Hash("x", 0f, "y", 0.5f, "z", 0f, "oncomplete", "RetractSpikes", "oncompletetarget", gameObject, "time", 1));
+			iTween.MoveBy (sprite.gameObject, iTween.Hash("x", 0f, "y", 0.5f, "z", 0f, "oncomplete", "RetractSpikes", "oncompletetarget", gameObject, "time", spikeExpandSpeed));
 		}
 	}
 
@@ -44,7 +45,7 @@ public class CactusController : MonoBehaviour {
 			spikesRetracting = true;
 			foreach (Transform child in transform) {
 				var sprite = child.GetChild (0);
-				iTween.MoveBy (sprite.gameObject, iTween.Hash ("x", 0f, "y", -0.5f, "z", 0f, "oncomplete", "OnRetractSpikesComplete", "oncompletetarget", gameObject, "time", 1));
+				iTween.MoveBy (sprite.gameObject, iTween.Hash ("x", 0f, "y", -0.5f, "z", 0f, "oncomplete", "OnRetractSpikesComplete", "oncompletetarget", gameObject, "time", spikeRetractSpeed));
 			}
 		}
 	}
