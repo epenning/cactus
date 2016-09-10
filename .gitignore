@@ -3,8 +3,8 @@
 # =============== #
 Temp/
 Library/
-ProjectSettings/ProjectVersion.txt
-ProjectSettings/ProjectSettings.asset
+ProjectVersion.txt
+ProjectSettings.asset
 
 # ===================================== #
 # Visual Studio / MonoDevelop generated #

@@ -25,4 +25,10 @@ public class PlayerController : MonoBehaviour {
 		
 		rbody.velocity = velocity * speed;
 	}
+
+	void ExtendSpikes () {
+		foreach (Transform child in transform) {
+			var sprite = child.Find ("Sprite");
+		}
+	}
 }
