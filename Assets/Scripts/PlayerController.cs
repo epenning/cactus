@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour {
 	public float speed = 0f;
 
 	bool spikesExtended = false;
+	bool spikesRetracting = false;
 
     public int numSpikes;
 
@@ -50,19 +51,23 @@ public class PlayerController : MonoBehaviour {
 	void ExtendSpikes () {
 		spikesExtended = true;
 		foreach (Transform child in transform) {
-			var sprite = child.Find ("Sprite");
+			var sprite = child.GetChild (0);
 			iTween.MoveBy (sprite.gameObject, iTween.Hash("x", 0f, "y", 0.5f, "z", 0f, "oncomplete", "RetractSpikes", "oncompletetarget", gameObject, "time", 1));
 		}
 	}
 
 	void RetractSpikes () {
-		foreach (Transform child in transform) {
-			var sprite = child.Find ("Sprite");
-			iTween.MoveBy (sprite.gameObject, iTween.Hash("x", 0f, "y", -0.5f, "z", 0f, "oncomplete", "OnRetractSpikesComplete", "oncompletetarget", gameObject, "time", 1));
+		if (!spikesRetracting) {
+			spikesRetracting = true;
+			foreach (Transform child in transform) {
+				var sprite = child.GetChild (0);
+				iTween.MoveBy (sprite.gameObject, iTween.Hash ("x", 0f, "y", -0.5f, "z", 0f, "oncomplete", "OnRetractSpikesComplete", "oncompletetarget", gameObject, "time", 1));
+			}
 		}
 	}
 
 	void OnRetractSpikesComplete() {
 		spikesExtended = false;
+		spikesRetracting = false;
 	}
 }

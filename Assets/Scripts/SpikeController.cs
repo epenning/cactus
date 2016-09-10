@@ -3,11 +3,11 @@ using System.Collections;
 
 public class SpikeController : MonoBehaviour {
 
-	public GameObject parentGamObject;
+	public GameObject parentGameObject;
 
 	// Use this for initialization
 	void Start () {
-		parentGamObject = transform.parent.parent.gameObject;
+		parentGameObject = transform.parent.parent.gameObject;
 
 	}
 	
@@ -18,8 +18,10 @@ public class SpikeController : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D coll) {
 		// not our own gameobject
-		if (coll.gameObject.tag != parentGamObject.tag) {
+		if (coll.gameObject.tag != parentGameObject.tag) {
 			Debug.Log ("Hit something!");
+
+			coll.gameObject.transform.parent = gameObject.transform;
 		}
 	}
 }
