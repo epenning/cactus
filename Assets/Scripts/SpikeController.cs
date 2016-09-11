@@ -9,6 +9,8 @@ public class SpikeController : MonoBehaviour {
 	public bool caughtSomething = false;
 	public GameObject caughtPlayer;
 
+    public GameObject stabbedPlayerObject;
+
     // Use this for initialization
     void Start () {
 		parentGameObject = transform.parent.parent.gameObject;
@@ -24,7 +26,7 @@ public class SpikeController : MonoBehaviour {
 		// not our own gameobject
 		if (coll.gameObject.tag == "Player") {
 			Debug.Log ("Hit something! Player " + ownerNum + " hit " + coll.gameObject.GetComponent<PlayerObjectController>().playerNum);
-            
+            stabbedPlayerObject = coll.gameObject;
 			if(coll.gameObject.GetComponent<PlayerObjectController>().playerNum != ownerNum)
             {
 				caughtSomething = true;

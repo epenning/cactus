@@ -65,11 +65,11 @@ public class CactusController : MonoBehaviour {
 				sprite.GetComponent<Collider2D> ().enabled = false;
 				if (sprite.GetComponent<SpikeController> ().caughtSomething == true) {
 					Debug.Log ("Children of spike which caught player:" + sprite.transform.childCount);
-					foreach (Transform innerchild in sprite.transform) {
+					foreach (GameObject innerchild in sprite.GetComponent<SpikeController>().stabbedPlayerObject.GetComponent<PlayerObjectController>().cactiBalls) {
 						Debug.Log ("    Child tag: " + innerchild.gameObject.tag);
 						if (innerchild.gameObject.tag == "Cactus") {
 							
-							innerchild.parent = transform.parent;
+							innerchild.transform.parent = transform.parent;
 							transform.GetComponentInParent<PlayerObjectController> ().cactiBalls.Add (innerchild.gameObject);
 							innerchild.gameObject.GetComponent<CactusController> ().ownerNum = ownerNum;
 						}
