@@ -3,8 +3,8 @@ using System.Collections;
 
 public class InputTest : MonoBehaviour {
 
-    float xDir;
-    float yDir;
+    public float xDir;
+    public float yDir;
 
     public bool aIsPressed;
     public bool xIsPressed;
@@ -18,8 +18,8 @@ public class InputTest : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        xDir = Input.GetAxis("Horizontal");
-        yDir = Input.GetAxis("Vertical");
+        xDir = Input.GetAxis("J1_Horizontal");
+        yDir = Input.GetAxis("J1_Vertical");
 
         Vector2 unitDir = new Vector2(xDir, yDir).normalized;
 

@@ -47,10 +47,11 @@ public class PlayerObjectController : MonoBehaviour {
     void Update () {
         // Movement
         var vx = Input.GetAxis(hAxis);
-        var vy = Input.GetAxis(vAxis);
+        // We don't know why this has to be negative
+        var vy = -Input.GetAxis(vAxis);
 
 
-        Debug.Log(vx);
+        //Debug.Log(vx);
 
         var velocity = new Vector2(vx, vy);
         if (velocity.magnitude > 1)
@@ -63,7 +64,7 @@ public class PlayerObjectController : MonoBehaviour {
 		}
 
         // Spike Extending
-        if (Input.GetKeyDown("space"))
+        if (Input.GetKeyDown("joystick " + playerNum + " button 0"))
         {
             foreach(GameObject cactiBall in cactiBalls)
             {
