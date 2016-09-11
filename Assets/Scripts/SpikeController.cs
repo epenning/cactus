@@ -30,8 +30,9 @@ public class SpikeController : MonoBehaviour {
 				caughtSomething = true;
 				caughtPlayer = coll.gameObject;
 
-				foreach (Transform child in coll.gameObject.transform) {
-					child.parent = gameObject.transform;
+				foreach (GameObject child in coll.gameObject.GetComponent<PlayerObjectController>().cactiBalls) {
+					child.transform.parent = gameObject.transform;
+
                     PlayerObjectController controllerScript = parentGameObject.transform.parent.GetComponent<PlayerObjectController>();
                     controllerScript.size++;
                     GameObject.Find("Player " + controllerScript.playerNum +  " Score").GetComponent<Text>().text = controllerScript.size.ToString() + "/" + GameObject.Find("GameController").GetComponent<GameController>().scoreLimit;

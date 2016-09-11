@@ -39,7 +39,7 @@ public class PlayerObjectController : MonoBehaviour {
 		if (transform.childCount > 0)
 			Debug.LogError ("RESPAWN WHEN THERE WAS A CACTUS!");
 
-        cactiBalls.Clear();
+        cactiBalls = new List<GameObject>();
         transform.position = startPos;
         GameObject newCactiBall = GameObject.Instantiate(cactiBallPrefab);
         newCactiBall.transform.parent = transform;
