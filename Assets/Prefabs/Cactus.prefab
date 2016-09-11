@@ -80,6 +80,9 @@ MonoBehaviour:
   poweredUpColor: {r: 0.816, g: 1, b: 0.328, a: 0.672}
   poweredUp: 1
   poweredAndDisabledColor: {r: 1, g: 0.353, b: 1, a: 1}
+  flowerSpritePrefab: {fileID: 1000013561064330, guid: fd95af690aa18e542873ac723e80a3f2,
+    type: 2}
+  flowerSprite: {fileID: 0}
 --- !u!212 &212000013469990326
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -42,6 +42,7 @@ public class CactusController : MonoBehaviour {
 
         flowerSprite = GameObject.Instantiate(flowerSpritePrefab);
         flowerSprite.transform.parent = transform;
+        flowerSprite.transform.localPosition = Vector3.zero;
 
         pickFlowerColor();
 
@@ -56,23 +57,25 @@ public class CactusController : MonoBehaviour {
 
     void pickFlowerColor()
     {
-        switch (ownerNum)
-        {
-            case 4:
-                flowerSprite.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/flower_of_cactus_purple");
-                break;
-            case 3:
-                flowerSprite.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/flower_of_cactus_blue");
-                break;
-            case 2:
-                flowerSprite.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/flower_of_cactus_green");
-                break;
-            case 1:
-                flowerSprite.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/flower_of_cactus_red");
-                break;
-            default:
-                break;
-        }
+        flowerSprite.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("flower_of_cactus_p" + ownerNum);
+
+        //switch (ownerNum)
+        //{
+        //    case 4:
+        //        flowerSprite.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/flower_of_cactus_purple");
+        //        break;
+        //    case 3:
+        //        flowerSprite.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/flower_of_cactus_blue");
+        //        break;
+        //    case 2:
+        //        flowerSprite.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/flower_of_cactus_green");
+        //        break;
+        //    case 1:
+        //        flowerSprite.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/flower_of_cactus_red");
+        //        break;
+        //    default:
+        //        break;
+        //}
     }
     
     void Update()
