@@ -25,8 +25,13 @@ public class CactusController : MonoBehaviour {
 		}
 	}
 
-	protected void ExtendSpikes () {
-		Debug.Log ("test");
+	public void ExtendSpikes () {
+
+        if (spikesExtended)
+            return;
+
+        Debug.Log ("test");
+
 
 		spikesExtended = true;
 		foreach (Transform child in transform) {
@@ -43,6 +48,7 @@ public class CactusController : MonoBehaviour {
 			foreach (Transform child in transform) {
 				var sprite = child.GetChild (0);
 				iTween.MoveBy (sprite.gameObject, iTween.Hash ("x", 0f, "y", -0.5f, "z", 0f, "oncomplete", "OnRetractSpikesComplete", "oncompletetarget", gameObject, "time", spikeRetractSpeed));
+
 			}
 		}
 	}
