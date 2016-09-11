@@ -76,7 +76,7 @@ public class PlayerObjectController : MonoBehaviour {
 
         // Spike Extending
 		try {
-			if (Input.GetKeyDown("joystick " + (playerNum) + " button 0") || Input.GetKeyDown(spikeKey)) {
+			if ((Input.GetAxis("J" + playerNum + "_ButtonA") > 0 || Input.GetKeyDown(spikeKey))) {
 				foreach(GameObject cactiBall in cactiBalls)
 				{
 					Debug.Log ("spike");
