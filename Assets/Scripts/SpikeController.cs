@@ -6,7 +6,6 @@ public class SpikeController : MonoBehaviour {
 
 	public GameObject parentGameObject;
 
-    public int ownerNum;
 	public bool caughtSomething = false;
 	public GameObject caughtPlayer;
 
@@ -18,6 +17,8 @@ public class SpikeController : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D coll) {
+		int ownerNum = transform.parent.parent.parent.GetComponent<PlayerObjectController> ().playerNum;
+
 		Debug.Log ("Did I hit something?");
 		Debug.Log (coll.gameObject.tag);
 		// not our own gameobject

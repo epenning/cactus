@@ -23,7 +23,6 @@ public class CactusController : MonoBehaviour {
 			GameObject newSpike = (GameObject) Instantiate(spikePrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
 			newSpike.transform.rotation = Quaternion.Euler(new Vector3(0, 0, i * spikeSpacing));
 			newSpike.transform.parent = transform;
-            newSpike.GetComponentInChildren<SpikeController>().ownerNum = ownerNum;
 		}
 	}
 
