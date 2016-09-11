@@ -13,6 +13,8 @@ public class CactusController : MonoBehaviour {
 	public float spikeExpandSpeed;
 	public float spikeRetractSpeed;
 
+    public int ownerNum;
+
 	// Use this for initialization
 	protected void Start () {
 		float spikeSpacing = 360f / numSpikes;
@@ -21,6 +23,7 @@ public class CactusController : MonoBehaviour {
 			GameObject newSpike = (GameObject) Instantiate(spikePrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
 			newSpike.transform.rotation = Quaternion.Euler(new Vector3(0, 0, i * spikeSpacing));
 			newSpike.transform.parent = transform;
+            newSpike.GetComponentInChildren<SpikeController>().ownerNum = ownerNum;
 		}
 	}
 
@@ -37,7 +40,7 @@ public class CactusController : MonoBehaviour {
 			var sprite = child.GetChild (0);
 			// enable spike collisions while extended
 			sprite.GetComponent<Collider2D> ().enabled = true;
-			iTween.MoveBy (sprite.gameObject, iTween.Hash ("x", 0f, "y", 0.5f, "z", 0f, "oncomplete", "RetractSpikes", "oncompletetarget", gameObject, "time", spikeExpandSpeed));
+			iTween.MoveBy (sprite.gameObject, iTween.Hash ("x", 0f, "y", 3f, "z", 0f, "oncomplete", "RetractSpikes", "oncompletetarget", gameObject, "time", spikeExpandSpeed));
 		}
 	}
 
@@ -46,7 +49,7 @@ public class CactusController : MonoBehaviour {
 			spikesRetracting = true;
 			foreach (Transform child in transform) {
 				var sprite = child.GetChild (0);
-				iTween.MoveBy (sprite.gameObject, iTween.Hash ("x", 0f, "y", -0.5f, "z", 0f, "oncomplete", "OnRetractSpikesComplete", "oncompletetarget", gameObject, "time", spikeRetractSpeed));
+				iTween.MoveBy (sprite.gameObject, iTween.Hash ("x", 0f, "y", -3f, "z", 0f, "oncomplete", "OnRetractSpikesComplete", "oncompletetarget", gameObject, "time", spikeRetractSpeed));
 
 			}
 		}

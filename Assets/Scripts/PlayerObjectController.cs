@@ -34,6 +34,7 @@ public class PlayerObjectController : MonoBehaviour {
         GameObject newCactiBall = GameObject.Instantiate(cactiBallPrefab);
         newCactiBall.transform.parent = transform;
         newCactiBall.transform.localPosition = Vector3.zero;
+        newCactiBall.GetComponent<CactusController>().ownerNum = playerNum;
         cactiBalls.Add(newCactiBall);
     }
 
@@ -44,7 +45,7 @@ public class PlayerObjectController : MonoBehaviour {
         var vy = Input.GetAxis(vAxis);
 
 
-
+        Debug.Log(vx);
 
         var velocity = new Vector2(vx, vy);
         if (velocity.magnitude > 1)
