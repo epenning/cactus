@@ -9,6 +9,7 @@ public class PlayerController : CactusController {
 	public Vector3 direction;
 
 	public float projectileSpeed = 10f;
+	public GameObject projectilePrefab;
 
 	public Rigidbody2D rbody;
 

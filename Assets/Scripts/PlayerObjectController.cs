@@ -9,12 +9,17 @@ public class PlayerObjectController : MonoBehaviour {
     public float speed = 0f;
     public Rigidbody2D rbody;
 
+	public bool powerup = false;
+	public Vector3 direction;
+
+	public float projectileSpeed = 10f;
 
     public int playerNum;
 
     public List<GameObject> cactiBalls;
 
-    public GameObject cactiBallPrefab;
+	public GameObject cactiBallPrefab;
+	public GameObject projectilePrefab;
 
     public Vector3 startPos;
 
@@ -53,6 +58,9 @@ public class PlayerObjectController : MonoBehaviour {
 
         rbody.velocity = velocity * speed;
 
+		if (velocity.magnitude > 0.1) {
+			direction = new Vector3(velocity.normalized.x, velocity.normalized.y);
+		}
 
         // Spike Extending
         if (Input.GetKeyDown("space"))
@@ -61,6 +69,22 @@ public class PlayerObjectController : MonoBehaviour {
             {
                 cactiBall.GetComponent<CactusController>().ExtendSpikes();
             }
-        }
-    }
+		}
+
+		// Using Powerup
+		if (Input.GetKeyDown("e")) {
+			if (powerup) {
+				powerup = false;
+
+				// activate powerup
+				ShootProjectile ();
+			}
+		}
+	}
+
+	void ShootProjectile() {
+		powerup = false;
+		GameObject projectile = (GameObject) Instantiate(projectilePrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.LookRotation(Vector3.forward, direction));
+		projectile.GetComponent<Rigidbody2D> ().velocity = direction * projectileSpeed;
+	}
 }

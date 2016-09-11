@@ -72,6 +72,8 @@ MonoBehaviour:
   numSpikes: 12
   spikePrefab: {fileID: 1000013834746530, guid: 84ea40141b846694f91a13327034517c,
     type: 2}
+  projectilePrefab: {fileID: 1000012554705160, guid: 4e9f2a8036ea86a4daf18153e147be01,
+    type: 2}
   spikeExpandSpeed: 0.2
   spikeRetractSpeed: 0.4
   ownerNum: 0
