@@ -26,6 +26,8 @@ public class PlayerObjectController : MonoBehaviour {
 
 	public string spikeKey;
 
+    public int size;
+
     // Use this for initialization
     void Start () {
         rbody = GetComponent<Rigidbody2D>();
@@ -41,6 +43,7 @@ public class PlayerObjectController : MonoBehaviour {
         newCactiBall.transform.localPosition = Vector3.zero;
         newCactiBall.GetComponent<CactusController>().ownerNum = playerNum;
         cactiBalls.Add(newCactiBall);
+        size = 1;
     }
 
     // Update is called once per frame

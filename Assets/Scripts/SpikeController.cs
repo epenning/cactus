@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class SpikeController : MonoBehaviour {
 
@@ -21,12 +22,17 @@ public class SpikeController : MonoBehaviour {
 		// not our own gameobject
 		if (coll.gameObject.tag == "Player") {
 			Debug.Log ("Hit something!");
+            
 			if(coll.gameObject.GetComponent<PlayerObjectController>().playerNum != ownerNum)
             {
 				caughtSomething = true;
 				foreach (Transform child in coll.gameObject.transform) {
 					child.parent = gameObject.transform;
-				}
+                    PlayerObjectController controllerScript = parentGameObject.transform.parent.GetComponent<PlayerObjectController>();
+                    controllerScript.size++;
+                    GameObject.Find("Player " + controllerScript.playerNum +  " Score").GetComponent<Text>().text = controllerScript.size.ToString() + "/" + GameObject.Find("GameController").GetComponent<GameController>().scoreLimit;
+
+                }
             }
         }
 	}
