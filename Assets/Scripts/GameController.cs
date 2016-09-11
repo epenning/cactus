@@ -16,11 +16,15 @@ public class GameController : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		timeLeft -= Time.deltaTime;
-        GameObject.Find("Timer Text").GetComponent<Text>().text = Mathf.Round(timeLeft).ToString(); 
-		if (timeLeft < 0) {
-			GameOver ();
-		}
+        if (gameRunning)
+        {
+            timeLeft -= Time.deltaTime;
+            GameObject.Find("Timer Text").GetComponent<Text>().text = Mathf.Round(timeLeft).ToString();
+            if (timeLeft < 0)
+            {
+                GameOver();
+            }
+        }
 	}
 
 	void GameOver() {
@@ -38,7 +42,7 @@ public class GameController : MonoBehaviour {
                     maxSize = player.size;
                 }
             }
-            GameObject.Find("Game Over Text").GetComponent<Text>().text = "Player " + winner[7] + " wins!";
+            GameObject.Find("Game Over Text").GetComponent<Text>().text = "Player " + winner[7] + " wins!\n\nPress X to replay.";
             Debug.Log("Game Over!");
         }
 	}
