@@ -69,6 +69,7 @@ public class CactusController : MonoBehaviour {
 					foreach (Transform innerchild in sprite.transform) {
 						if (innerchild.gameObject.tag == "Cactus") {
 							innerchild.parent = transform.parent;
+							transform.GetComponentInParent<PlayerObjectController> ().cactiBalls.Add (innerchild.gameObject);
 							innerchild.gameObject.GetComponent<CactusController> ().ownerNum = ownerNum;
 						}
 					}
