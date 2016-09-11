@@ -22,20 +22,20 @@ public class SpikeController : MonoBehaviour {
 		Debug.Log (coll.gameObject.tag);
 		// not our own gameobject
 		if (coll.gameObject.tag == "Player") {
-			Debug.Log ("Hit something!");
+			Debug.Log ("Hit something! Player " + ownerNum + " hit " + coll.gameObject.GetComponent<PlayerObjectController>().playerNum);
             
 			if(coll.gameObject.GetComponent<PlayerObjectController>().playerNum != ownerNum)
             {
 				caughtSomething = true;
 				caughtPlayer = coll.gameObject;
+
 				foreach (Transform child in coll.gameObject.transform) {
 					child.parent = gameObject.transform;
                     PlayerObjectController controllerScript = parentGameObject.transform.parent.GetComponent<PlayerObjectController>();
                     controllerScript.size++;
                     GameObject.Find("Player " + controllerScript.playerNum +  " Score").GetComponent<Text>().text = controllerScript.size.ToString() + "/" + GameObject.Find("GameController").GetComponent<GameController>().scoreLimit;
-                }
-
-				coll.gameObject.GetComponent<PlayerObjectController> ().Kill ();
+				}
+				Debug.Assert (coll.gameObject.transform.childCount == 0);
             }
         }
 	}

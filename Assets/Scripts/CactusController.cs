@@ -50,24 +50,26 @@ public class CactusController : MonoBehaviour {
 			foreach (Transform child in transform) {
 				var sprite = child.GetChild (0);
 				iTween.MoveBy (sprite.gameObject, iTween.Hash ("x", 0f, "y", -3f, "z", 0f, "oncomplete", "OnRetractSpikesComplete", "oncompletetarget", gameObject, "time", spikeRetractSpeed));
-
 			}
 		}
 	}
 
 	protected void OnRetractSpikesComplete() {
 		if (spikesRetracting) {
-			spikesExtended = false;
+			Debug.Log ("Retracted~~" + spikesRetracting);
 			spikesRetracting = false;
-
+			spikesExtended = false;
 
 			foreach (Transform child in transform) {
 				var sprite = child.GetChild (0);
 				// disable spike collisions while retracted
 				sprite.GetComponent<Collider2D> ().enabled = false;
 				if (sprite.GetComponent<SpikeController> ().caughtSomething == true) {
+					Debug.Log ("Children of spike which caught player:" + sprite.transform.childCount);
 					foreach (Transform innerchild in sprite.transform) {
+						Debug.Log ("    Child tag: " + innerchild.gameObject.tag);
 						if (innerchild.gameObject.tag == "Cactus") {
+							
 							innerchild.parent = transform.parent;
 							transform.GetComponentInParent<PlayerObjectController> ().cactiBalls.Add (innerchild.gameObject);
 							innerchild.gameObject.GetComponent<CactusController> ().ownerNum = ownerNum;
@@ -76,6 +78,8 @@ public class CactusController : MonoBehaviour {
 					// kill other player
 					sprite.GetComponent<SpikeController> ().caughtPlayer.GetComponent<PlayerObjectController>().Kill();
 				}
+				// reset caught something variable
+				sprite.GetComponent<SpikeController> ().caughtSomething = false;
 			}
 		}
 	}
