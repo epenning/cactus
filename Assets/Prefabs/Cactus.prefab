@@ -75,6 +75,8 @@ MonoBehaviour:
   spikeExpandSpeed: 0.2
   spikeRetractSpeed: 0.4
   ownerNum: 0
+  canSpike: 0
+  disabledColor: {r: 1, g: 0.20392157, b: 1, a: 1}
 --- !u!212 &212000013469990326
 SpriteRenderer:
   m_ObjectHideFlags: 1

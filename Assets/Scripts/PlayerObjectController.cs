@@ -29,6 +29,8 @@ public class PlayerObjectController : MonoBehaviour {
 
     public int size;
 
+    public int numDisabled;
+
 
     // Use this for initialization
     void Start () {
@@ -130,5 +132,6 @@ public class PlayerObjectController : MonoBehaviour {
 		powerup = false;
 		GameObject projectile = (GameObject) Instantiate(projectilePrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.LookRotation(Vector3.forward, direction));
 		projectile.GetComponent<Rigidbody2D> ().velocity = direction * projectileSpeed;
+        projectile.GetComponent<MegaspikeController>().ownerNum = playerNum;
 	}
 }

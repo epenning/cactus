@@ -20,11 +20,12 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000010493618220}
   - 212: {fileID: 212000012736607924}
-  - 60: {fileID: 60000012203172854}
   - 50: {fileID: 50000012352603864}
+  - 114: {fileID: 114000013006772710}
+  - 61: {fileID: 61000013613444020}
   m_Layer: 0
   m_Name: Projectile
-  m_TagString: Untagged
+  m_TagString: Megaspike
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59,8 +60,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!60 &60000012203172854
-PolygonCollider2D:
+--- !u!61 &61000013613444020
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -70,12 +71,21 @@ PolygonCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  m_Points:
-    m_Paths:
-    - - {x: -0.43301272, y: -0.24999994}
-      - {x: 0.43301272, y: -0.25000003}
-      - {x: 0, y: 0.5}
+  m_Offset: {x: 0, y: 4}
+  serializedVersion: 2
+  m_Size: {x: 2.4296875, y: 8}
+--- !u!114 &114000013006772710
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012554705160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08e7167845439cf4aa3561f29c225a46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ownerNum: 0
 --- !u!212 &212000012736607924
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -105,7 +115,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 761ce767a7287474e89b9e53a91b3f72, type: 3}
+  m_Sprite: {fileID: 21300000, guid: efea5fb3b796180448fd1cbc10278182, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

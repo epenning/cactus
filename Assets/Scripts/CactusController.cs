@@ -15,8 +15,13 @@ public class CactusController : MonoBehaviour {
 
     public int ownerNum;
 
+    public bool canSpike;
+
+    public Color disabledColor;
+
 	// Use this for initialization
 	protected void Start () {
+        canSpike = true;
 		float spikeSpacing = 360f / numSpikes;
 		for(int i = 0; i < numSpikes; i++)
 		{
@@ -28,7 +33,7 @@ public class CactusController : MonoBehaviour {
 
 	public void ExtendSpikes () {
 
-        if (spikesExtended)
+        if (spikesExtended || !canSpike)
             return;
 
         Debug.Log ("test");
@@ -90,6 +95,25 @@ public class CactusController : MonoBehaviour {
 			// set player to having the powerup
 			transform.GetComponentInParent<PlayerObjectController>().powerup = true;
 			// disable the powerup !!
-		}
+		} else if(coll.gameObject.tag == "Megaspike")
+        {
+            if(coll.gameObject.GetComponent<MegaspikeController>().ownerNum != ownerNum)
+            {
+                Debug.Log("I got hit by a megaspike!");
+                disableCactus();
+                GameObject.Destroy(coll.gameObject);
+            }
+        }
 	}
+
+    public void disableCactus()
+    {
+        if(canSpike && (GetComponentInParent<PlayerObjectController>().size - GetComponentInParent<PlayerObjectController>().numDisabled) > 1)
+        {
+            canSpike = false;
+            GetComponent<SpriteRenderer>().color = disabledColor;
+            GetComponentInParent<PlayerObjectController>().numDisabled++;
+        }
+
+    }
 }

@@ -69,11 +69,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9003bc130fa42d94eba1e5c4e92892b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 18
+  speed: 24
   rbody: {fileID: 0}
   powerup: 0
   direction: {x: 0, y: 0, z: 0}
-  projectileSpeed: 10
+  projectileSpeed: 100
   playerNum: 0
   cactiBalls: []
   cactiBallPrefab: {fileID: 1000013595872858, guid: 7ac499cc06fb02d4c907f4f185ad9004,
@@ -84,3 +84,5 @@ MonoBehaviour:
   hAxis: Horizontal
   vAxis: Vertical
   spikeKey: space
+  size: 0
+  numDisabled: 0

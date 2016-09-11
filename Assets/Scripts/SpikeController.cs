@@ -37,6 +37,7 @@ public class SpikeController : MonoBehaviour {
 
                     PlayerObjectController controllerScript = parentGameObject.transform.parent.GetComponent<PlayerObjectController>();
                     controllerScript.size++;
+                    controllerScript.speed -= 1.5f;
                     controllerScript.checkForEnd();
                     GameObject.Find("Player " + controllerScript.playerNum +  " Score").GetComponent<Text>().text = controllerScript.size.ToString() + "/" + GameObject.Find("GameController").GetComponent<GameController>().scoreLimit;
 				}
@@ -44,4 +45,15 @@ public class SpikeController : MonoBehaviour {
             }
         }
 	}
+
+    void OnTriggerEnter2D(Collider2D coll)
+    {if (coll.gameObject.tag == "Megaspike")
+        {
+            if (coll.gameObject.GetComponent<MegaspikeController>().ownerNum != parentGameObject.GetComponent<CactusController>().ownerNum)
+            {
+                Debug.Log("deflected a megaspike!");
+                GameObject.Destroy(coll.gameObject);
+            }
+        }
+    }
 }
