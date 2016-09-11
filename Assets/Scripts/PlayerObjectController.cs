@@ -72,10 +72,10 @@ public class PlayerObjectController : MonoBehaviour {
 
         // Spike Extending
 		try {
-			if (Input.GetKeyDown("joystick " + playerNum + " button 0"))
-			{
+			if (Input.GetKeyDown("joystick " + (playerNum-1) + " button 0") || Input.GetKeyDown(spikeKey)) {
 				foreach(GameObject cactiBall in cactiBalls)
 				{
+					Debug.Log ("spike");
 					cactiBall.GetComponent<CactusController>().ExtendSpikes();
 				}
 			}
@@ -83,6 +83,7 @@ public class PlayerObjectController : MonoBehaviour {
 			if (Input.GetKeyDown(spikeKey)) {
 				foreach(GameObject cactiBall in cactiBalls)
 				{
+					Debug.Log ("spike");
 					cactiBall.GetComponent<CactusController>().ExtendSpikes();
 				}
 			}

@@ -73,6 +73,8 @@ public class CactusController : MonoBehaviour {
 							innerchild.gameObject.GetComponent<CactusController> ().ownerNum = ownerNum;
 						}
 					}
+					// kill other player
+					sprite.GetComponent<SpikeController> ().caughtPlayer.GetComponent<PlayerObjectController>().Kill();
 				}
 			}
 		}

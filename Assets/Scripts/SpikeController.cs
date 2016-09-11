@@ -8,6 +8,7 @@ public class SpikeController : MonoBehaviour {
 
     public int ownerNum;
 	public bool caughtSomething = false;
+	public GameObject caughtPlayer;
 
     // Use this for initialization
     void Start () {
@@ -26,12 +27,12 @@ public class SpikeController : MonoBehaviour {
 			if(coll.gameObject.GetComponent<PlayerObjectController>().playerNum != ownerNum)
             {
 				caughtSomething = true;
+				caughtPlayer = coll.gameObject;
 				foreach (Transform child in coll.gameObject.transform) {
 					child.parent = gameObject.transform;
                     PlayerObjectController controllerScript = parentGameObject.transform.parent.GetComponent<PlayerObjectController>();
                     controllerScript.size++;
                     GameObject.Find("Player " + controllerScript.playerNum +  " Score").GetComponent<Text>().text = controllerScript.size.ToString() + "/" + GameObject.Find("GameController").GetComponent<GameController>().scoreLimit;
-
                 }
 
 				coll.gameObject.GetComponent<PlayerObjectController> ().Kill ();
