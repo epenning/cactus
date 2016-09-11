@@ -43,6 +43,10 @@ public class PlayerObjectController : MonoBehaviour {
         cactiBalls.Add(newCactiBall);
     }
 
+	public void Kill() {
+		Spawn ();
+	}
+
     // Update is called once per frame
     void Update () {
         // Movement

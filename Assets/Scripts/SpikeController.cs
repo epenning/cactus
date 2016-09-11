@@ -27,6 +27,7 @@ public class SpikeController : MonoBehaviour {
 				foreach (Transform child in coll.gameObject.transform) {
 					child.parent = gameObject.transform;
 				}
+				coll.gameObject.GetComponent<PlayerObjectController> ().Kill ();
             }
         }
 	}
