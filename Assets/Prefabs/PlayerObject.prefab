@@ -71,7 +71,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 24
   rbody: {fileID: 0}
-  powerup: 0
+  powerup: 1
   direction: {x: 0, y: 0, z: 0}
   projectileSpeed: 100
   playerNum: 0
