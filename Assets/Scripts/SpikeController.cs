@@ -5,8 +5,10 @@ public class SpikeController : MonoBehaviour {
 
 	public GameObject parentGameObject;
 
-	// Use this for initialization
-	void Start () {
+    public int ownerNum;
+
+    // Use this for initialization
+    void Start () {
 		parentGameObject = transform.parent.parent.gameObject;
 		// disable collision originally
 		gameObject.GetComponent<Collider2D>().enabled = false;
@@ -19,10 +21,13 @@ public class SpikeController : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D coll) {
 		// not our own gameobject
-		if (coll.gameObject.tag != parentGameObject.tag) {
+		if (coll.gameObject.tag == "Cactus") {
 			Debug.Log ("Hit something!");
+            if(coll.gameObject.GetComponent<CactusController>().ownerNum != ownerNum)
+            {
+                coll.gameObject.transform.parent = gameObject.transform;
 
-			coll.gameObject.transform.parent = gameObject.transform;
-		}
+            }
+        }
 	}
 }
