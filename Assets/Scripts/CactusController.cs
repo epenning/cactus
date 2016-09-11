@@ -29,6 +29,9 @@ public class CactusController : MonoBehaviour {
 
     public Color poweredAndDisabledColor;
 
+    public GameObject flowerSpritePrefab;
+    public GameObject flowerSprite;
+
 	// Use this for initialization
 	protected void Start () {
         //poweredUp = false;
@@ -37,6 +40,12 @@ public class CactusController : MonoBehaviour {
         cactusSprite = GetComponent<SpriteRenderer>();
         parentController = GetComponentInParent<PlayerObjectController>();
 
+        flowerSprite = GameObject.Instantiate(flowerSpritePrefab);
+        flowerSprite.transform.parent = transform;
+
+        pickFlowerColor();
+
+
         for (int i = 0; i < numSpikes; i++)
 		{
 			GameObject newSpike = (GameObject) Instantiate(spikePrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
@@ -44,6 +53,27 @@ public class CactusController : MonoBehaviour {
 			newSpike.transform.parent = transform;
 		}
 	}
+
+    void pickFlowerColor()
+    {
+        switch (ownerNum)
+        {
+            case 4:
+                flowerSprite.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/flower_of_cactus_purple");
+                break;
+            case 3:
+                flowerSprite.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/flower_of_cactus_blue");
+                break;
+            case 2:
+                flowerSprite.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/flower_of_cactus_green");
+                break;
+            case 1:
+                flowerSprite.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/flower_of_cactus_red");
+                break;
+            default:
+                break;
+        }
+    }
     
     void Update()
     {
@@ -119,8 +149,10 @@ public class CactusController : MonoBehaviour {
 							
 							innerchild.transform.parent = transform.parent;
 							transform.GetComponentInParent<PlayerObjectController> ().cactiBalls.Add (innerchild.gameObject);
-							innerchild.gameObject.GetComponent<CactusController> ().ownerNum = ownerNum;
-						}
+                            innerchild.gameObject.GetComponent<CactusController> ().ownerNum = ownerNum;
+                            innerchild.gameObject.GetComponent<CactusController>().pickFlowerColor();
+
+                        }
 					}
 					// kill other player
 					sprite.GetComponent<SpikeController> ().caughtPlayer.GetComponent<PlayerObjectController>().Kill();
