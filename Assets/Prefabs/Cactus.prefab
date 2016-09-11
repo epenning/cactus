@@ -36,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013595872858}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -20.463766, y: -8.876815, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -72,8 +72,6 @@ MonoBehaviour:
   numSpikes: 12
   spikePrefab: {fileID: 1000013834746530, guid: 84ea40141b846694f91a13327034517c,
     type: 2}
-  projectilePrefab: {fileID: 1000012554705160, guid: 4e9f2a8036ea86a4daf18153e147be01,
-    type: 2}
   spikeExpandSpeed: 0.2
   spikeRetractSpeed: 0.4
   ownerNum: 0
@@ -105,7 +103,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 504f6b76c8251e34a81a70024977be2f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

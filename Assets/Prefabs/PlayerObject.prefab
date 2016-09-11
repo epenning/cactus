@@ -21,9 +21,9 @@ GameObject:
   - 4: {fileID: 4000012894761870}
   - 114: {fileID: 114000012695317776}
   - 50: {fileID: 50000011484738840}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PlayerObject
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35,7 +35,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010975864626}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -40, y: 20, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -71,10 +71,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 18
   rbody: {fileID: 0}
+  powerup: 0
+  direction: {x: 0, y: 0, z: 0}
+  projectileSpeed: 10
   playerNum: 0
   cactiBalls: []
   cactiBallPrefab: {fileID: 1000013595872858, guid: 7ac499cc06fb02d4c907f4f185ad9004,
     type: 2}
-  startPos: {x: -40, y: 20, z: 0}
-  hAxis: 
-  vAxis: 
+  projectilePrefab: {fileID: 1000012554705160, guid: 4e9f2a8036ea86a4daf18153e147be01,
+    type: 2}
+  startPos: {x: 0, y: 0, z: 0}
+  hAxis: Horizontal
+  vAxis: Vertical
+  spikeKey: space

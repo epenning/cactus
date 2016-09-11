@@ -4,8 +4,6 @@ using System.Collections.Generic;
 
 public class PlayerObjectController : MonoBehaviour {
 
-
-
     public float speed = 0f;
     public Rigidbody2D rbody;
 
@@ -25,6 +23,8 @@ public class PlayerObjectController : MonoBehaviour {
 
     public string hAxis;
     public string vAxis;
+
+	public string spikeKey;
 
     // Use this for initialization
     void Start () {
@@ -50,7 +50,7 @@ public class PlayerObjectController : MonoBehaviour {
         var vy = Input.GetAxis(vAxis);
 
 
-        Debug.Log(vx);
+        //Debug.Log(vx);
 
         var velocity = new Vector2(vx, vy);
         if (velocity.magnitude > 1)
@@ -63,7 +63,7 @@ public class PlayerObjectController : MonoBehaviour {
 		}
 
         // Spike Extending
-        if (Input.GetKeyDown("space"))
+		if (Input.GetKeyDown(spikeKey))
         {
             foreach(GameObject cactiBall in cactiBalls)
             {

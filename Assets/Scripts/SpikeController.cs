@@ -13,20 +13,18 @@ public class SpikeController : MonoBehaviour {
 		// disable collision originally
 		gameObject.GetComponent<Collider2D>().enabled = false;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
 	void OnCollisionEnter2D(Collision2D coll) {
+		Debug.Log ("Did I hit something?");
+		Debug.Log (coll.gameObject.tag);
 		// not our own gameobject
-		if (coll.gameObject.tag == "Cactus") {
+		if (coll.gameObject.tag == "Player") {
 			Debug.Log ("Hit something!");
-            if(coll.gameObject.GetComponent<CactusController>().ownerNum != ownerNum)
+			if(coll.gameObject.GetComponent<PlayerObjectController>().playerNum != ownerNum)
             {
-                coll.gameObject.transform.parent = gameObject.transform;
-
+				foreach (Transform child in coll.gameObject.transform) {
+					child.parent = gameObject.transform;
+				}
             }
         }
 	}
