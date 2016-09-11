@@ -37,6 +37,7 @@ public class SpikeController : MonoBehaviour {
 
                     PlayerObjectController controllerScript = parentGameObject.transform.parent.GetComponent<PlayerObjectController>();
                     controllerScript.size++;
+                    controllerScript.checkForEnd();
                     GameObject.Find("Player " + controllerScript.playerNum +  " Score").GetComponent<Text>().text = controllerScript.size.ToString() + "/" + GameObject.Find("GameController").GetComponent<GameController>().scoreLimit;
 				}
 				Debug.Assert (coll.gameObject.transform.childCount == 0);

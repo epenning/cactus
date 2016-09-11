@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
 
@@ -24,10 +25,16 @@ public class GameController : MonoBehaviour {
             {
                 GameOver();
             }
+        } else
+        {
+            if(Input.GetKeyDown("joystick button 2"))
+            {
+                SceneManager.LoadScene(2);
+            }
         }
 	}
 
-	void GameOver() {
+	public void GameOver() {
         if (gameRunning)
         {
             gameRunning = false;
@@ -36,6 +43,7 @@ public class GameController : MonoBehaviour {
             for (int i = 1; i <= 4; i++)
             {
                 PlayerObjectController player = GameObject.Find("Player " + i + " Object").GetComponent<PlayerObjectController>();
+                player.rbody.velocity = Vector3.zero;
                 if (player.size > maxSize)
                 {
                     winner = player.name;

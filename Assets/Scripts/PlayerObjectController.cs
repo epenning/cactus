@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class PlayerObjectController : MonoBehaviour {
 
@@ -28,6 +29,7 @@ public class PlayerObjectController : MonoBehaviour {
 
     public int size;
 
+
     // Use this for initialization
     void Start () {
         rbody = GetComponent<Rigidbody2D>();
@@ -47,15 +49,34 @@ public class PlayerObjectController : MonoBehaviour {
         newCactiBall.GetComponent<CactusController>().ownerNum = playerNum;
         cactiBalls.Add(newCactiBall);
         size = 1;
+        GameObject.Find("Player " + playerNum + " Score").GetComponent<Text>().text = "1/" + GameObject.Find("GameController").GetComponent<GameController>().scoreLimit;
+
     }
 
-	public void Kill() {
-		Spawn ();
+    public void Kill() {
+        if (!GameObject.Find("GameController").GetComponent<GameController>().gameRunning)
+        {
+            return;
+        }
+        Spawn ();
 	}
+
+    public void checkForEnd()
+    {
+        if(size >= GameObject.Find("GameController").GetComponent<GameController>().scoreLimit)
+        {
+            GameObject.Find("GameController").GetComponent<GameController>().GameOver();
+        }
+    }
 
     // Update is called once per frame
     void Update () {
-        //bool 
+        if (!GameObject.Find("GameController").GetComponent<GameController>().gameRunning)
+        {
+            return;
+        }
+
+         
         // Movement
         var vx = Input.GetAxis(hAxis);
         // We don't know why this has to be negative
