@@ -55,6 +55,7 @@ public class PlayerObjectController : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
+        //bool 
         // Movement
         var vx = Input.GetAxis(hAxis);
         // We don't know why this has to be negative
@@ -75,7 +76,7 @@ public class PlayerObjectController : MonoBehaviour {
 
         // Spike Extending
 		try {
-			if (Input.GetKeyDown("joystick " + (playerNum-1) + " button 0") || Input.GetKeyDown(spikeKey)) {
+			if (Input.GetKeyDown("joystick " + (playerNum) + " button 0") || Input.GetKeyDown(spikeKey)) {
 				foreach(GameObject cactiBall in cactiBalls)
 				{
 					Debug.Log ("spike");
