@@ -29,8 +29,8 @@ public class CactusController : MonoBehaviour {
 
     public Color poweredAndDisabledColor;
 
-    public GameObject flowerSpritePrefab;
-    public GameObject flowerSprite;
+    //public GameObject flowerSpritePrefab;
+    //public GameObject flowerSprite;
 
 	// Use this for initialization
 	protected void Start () {
@@ -57,7 +57,7 @@ public class CactusController : MonoBehaviour {
 
     void pickFlowerColor()
     {
-        flowerSprite.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("flower_of_cactus_p" + ownerNum);
+        //flowerSprite.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("flower_of_cactus_p" + ownerNum);
 
         //switch (ownerNum)
         //{
