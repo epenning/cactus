@@ -77,6 +77,9 @@ MonoBehaviour:
   ownerNum: 0
   canSpike: 0
   disabledColor: {r: 1, g: 0.20392157, b: 1, a: 1}
+  poweredUpColor: {r: 0.816, g: 1, b: 0.328, a: 0.672}
+  poweredUp: 1
+  poweredAndDisabledColor: {r: 1, g: 0.353, b: 1, a: 1}
 --- !u!212 &212000013469990326
 SpriteRenderer:
   m_ObjectHideFlags: 1

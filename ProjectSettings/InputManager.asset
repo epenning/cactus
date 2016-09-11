@@ -20,7 +20,7 @@ InputManager:
     invert: 0
     type: 2
     axis: 0
-    joyNum: 5
+    joyNum: 1
   - serializedVersion: 3
     m_Name: Horizontal
     descriptiveName: 
@@ -52,7 +52,7 @@ InputManager:
     invert: 0
     type: 2
     axis: 0
-    joyNum: 6
+    joyNum: 2
   - serializedVersion: 3
     m_Name: J3_Horizontal
     descriptiveName: 
@@ -100,7 +100,7 @@ InputManager:
     invert: 0
     type: 2
     axis: 1
-    joyNum: 5
+    joyNum: 1
   - serializedVersion: 3
     m_Name: Vertical
     descriptiveName: 
@@ -132,7 +132,7 @@ InputManager:
     invert: 0
     type: 2
     axis: 1
-    joyNum: 6
+    joyNum: 2
   - serializedVersion: 3
     m_Name: J3_Vertical
     descriptiveName: 
@@ -170,7 +170,7 @@ InputManager:
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: joystick 5 button 0
+    positiveButton: joystick 1 button 0
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000
@@ -186,7 +186,7 @@ InputManager:
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: joystick 6 button 0
+    positiveButton: joystick 2 button 0
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000
@@ -244,7 +244,7 @@ InputManager:
     invert: 0
     type: 0
     axis: 0
-    joyNum: 1
+    joyNum: 6
   - serializedVersion: 3
     m_Name: J2_ButtonX
     descriptiveName: 
@@ -260,7 +260,7 @@ InputManager:
     invert: 0
     type: 0
     axis: 0
-    joyNum: 2
+    joyNum: 6
   - serializedVersion: 3
     m_Name: J3_ButtonX
     descriptiveName: 

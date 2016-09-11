@@ -8,7 +8,7 @@ public class PlayerObjectController : MonoBehaviour {
     public float speed = 0f;
     public Rigidbody2D rbody;
 
-	public bool powerup = false;
+	public bool powerup = true;
 	public Vector3 direction;
 
 	public float projectileSpeed = 10f;
@@ -43,6 +43,7 @@ public class PlayerObjectController : MonoBehaviour {
 		if (transform.childCount > 0)
 			Debug.LogError ("RESPAWN WHEN THERE WAS A CACTUS!");
 
+        powerup = true;
         cactiBalls = new List<GameObject>();
         transform.position = startPos;
         GameObject newCactiBall = GameObject.Instantiate(cactiBallPrefab);
@@ -118,7 +119,8 @@ public class PlayerObjectController : MonoBehaviour {
 
 
 		// Using Powerup
-		if (Input.GetKeyDown("e")) {
+		if (Input.GetAxis("J" + playerNum + "_ButtonX") > 0) {
+            Debug.Log("shoot powerup");
 			if (powerup) {
 				powerup = false;
 

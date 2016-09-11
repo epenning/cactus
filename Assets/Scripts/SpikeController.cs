@@ -34,6 +34,7 @@ public class SpikeController : MonoBehaviour {
 
 				foreach (GameObject child in coll.gameObject.GetComponent<PlayerObjectController>().cactiBalls) {
 					child.transform.parent = gameObject.transform;
+                    child.GetComponent<CactusController>().poweredUp = false;
 
                     PlayerObjectController controllerScript = parentGameObject.transform.parent.GetComponent<PlayerObjectController>();
                     controllerScript.size++;

@@ -19,17 +19,60 @@ public class CactusController : MonoBehaviour {
 
     public Color disabledColor;
 
+    public Color poweredUpColor;
+
+    public bool poweredUp = true;
+
+    SpriteRenderer cactusSprite;
+
+    PlayerObjectController parentController;
+
+    public Color poweredAndDisabledColor;
+
 	// Use this for initialization
 	protected void Start () {
+        //poweredUp = false;
         canSpike = true;
 		float spikeSpacing = 360f / numSpikes;
-		for(int i = 0; i < numSpikes; i++)
+        cactusSprite = GetComponent<SpriteRenderer>();
+        parentController = GetComponentInParent<PlayerObjectController>();
+
+        for (int i = 0; i < numSpikes; i++)
 		{
 			GameObject newSpike = (GameObject) Instantiate(spikePrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
 			newSpike.transform.rotation = Quaternion.Euler(new Vector3(0, 0, i * spikeSpacing));
 			newSpike.transform.parent = transform;
 		}
 	}
+    
+    void Update()
+    {
+        if (!parentController.powerup)
+            poweredUp = false;
+        if (!canSpike)
+        {
+            if(poweredUp)
+            {
+                cactusSprite.color = poweredAndDisabledColor;
+            }
+            else
+            {
+                cactusSprite.color = disabledColor;
+            }
+        } else
+        {
+
+            if (poweredUp)
+            {
+                cactusSprite.color = poweredUpColor;
+            }
+            else
+            {
+                cactusSprite.color = Color.white;
+            }
+        }
+
+    }
 
 	public void ExtendSpikes () {
 
@@ -93,7 +136,8 @@ public class CactusController : MonoBehaviour {
 		if (coll.gameObject.tag == "Powerup") {
 			Debug.Log ("powerup pickup");
 			// set player to having the powerup
-			transform.GetComponentInParent<PlayerObjectController>().powerup = true;
+			parentController.powerup = true;
+            poweredUp = true;
 			// disable the powerup !!
 		} else if(coll.gameObject.tag == "Megaspike")
         {
@@ -108,11 +152,11 @@ public class CactusController : MonoBehaviour {
 
     public void disableCactus()
     {
-        if(canSpike && (GetComponentInParent<PlayerObjectController>().size - GetComponentInParent<PlayerObjectController>().numDisabled) > 1)
+        if(canSpike && (parentController.size - parentController.numDisabled) >= 1)
         {
             canSpike = false;
             GetComponent<SpriteRenderer>().color = disabledColor;
-            GetComponentInParent<PlayerObjectController>().numDisabled++;
+            parentController.numDisabled++;
         }
 
     }

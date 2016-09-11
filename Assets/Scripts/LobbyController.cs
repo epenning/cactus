@@ -49,12 +49,12 @@ public class LobbyController : MonoBehaviour {
 
         if (Input.GetKeyDown("joystick 3 button 2"))
         {
-            ToggleButton(b1);
+            ToggleButton(b3);
         }
 
         if (Input.GetKeyDown("joystick 4 button 2"))
         {
-            ToggleButton(b2);
+            ToggleButton(b4);
         }
 
 
