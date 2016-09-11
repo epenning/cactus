@@ -217,18 +217,22 @@ MonoBehaviour:
     button: {fileID: 0}
     color: {r: 0, g: 0, b: 0, a: 0}
     selected: 0
+    pressed: 0
   b2:
     button: {fileID: 0}
     color: {r: 0, g: 0, b: 0, a: 0}
     selected: 0
+    pressed: 0
   b3:
     button: {fileID: 0}
     color: {r: 0, g: 0, b: 0, a: 0}
     selected: 0
+    pressed: 0
   b4:
     button: {fileID: 0}
     color: {r: 0, g: 0, b: 0, a: 0}
     selected: 0
+    pressed: 0
 --- !u!1001 &755878968
 Prefab:
   m_ObjectHideFlags: 0
@@ -316,7 +320,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -708,18 +712,22 @@ MonoBehaviour:
     button: {fileID: 956139481}
     color: {r: 1, g: 0, b: 0, a: 1}
     selected: 0
+    pressed: 0
   b2:
     button: {fileID: 1682956450}
     color: {r: 0, g: 0.8308824, b: 0.005730177, a: 1}
     selected: 0
+    pressed: 0
   b3:
     button: {fileID: 1549290239}
     color: {r: 0.22610295, g: 0.5114604, b: 0.9044118, a: 1}
     selected: 0
+    pressed: 0
   b4:
     button: {fileID: 1114246858}
     color: {r: 0.9789554, g: 0.99264705, b: 0, a: 1}
     selected: 0
+    pressed: 0
 --- !u!1001 &1544144302
 Prefab:
   m_ObjectHideFlags: 0

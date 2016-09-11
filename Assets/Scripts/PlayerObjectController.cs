@@ -47,7 +47,8 @@ public class PlayerObjectController : MonoBehaviour {
     void Update () {
         // Movement
         var vx = Input.GetAxis(hAxis);
-        var vy = Input.GetAxis(vAxis);
+        // We don't know why this has to be negative
+        var vy = -Input.GetAxis(vAxis);
 
 
         //Debug.Log(vx);
@@ -63,13 +64,23 @@ public class PlayerObjectController : MonoBehaviour {
 		}
 
         // Spike Extending
-		if (Input.GetKeyDown(spikeKey))
-        {
-            foreach(GameObject cactiBall in cactiBalls)
-            {
-                cactiBall.GetComponent<CactusController>().ExtendSpikes();
-            }
+		try {
+			if (Input.GetKeyDown("joystick " + playerNum + " button 0"))
+			{
+				foreach(GameObject cactiBall in cactiBalls)
+				{
+					cactiBall.GetComponent<CactusController>().ExtendSpikes();
+				}
+			}
+		} catch {
+			if (Input.GetKeyDown(spikeKey)) {
+				foreach(GameObject cactiBall in cactiBalls)
+				{
+					cactiBall.GetComponent<CactusController>().ExtendSpikes();
+				}
+			}
 		}
+
 
 		// Using Powerup
 		if (Input.GetKeyDown("e")) {
