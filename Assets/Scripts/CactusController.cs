@@ -40,11 +40,11 @@ public class CactusController : MonoBehaviour {
         cactusSprite = GetComponent<SpriteRenderer>();
         parentController = GetComponentInParent<PlayerObjectController>();
 
-        flowerSprite = GameObject.Instantiate(flowerSpritePrefab);
-        flowerSprite.transform.parent = transform;
-        flowerSprite.transform.localPosition = Vector3.zero;
+        //flowerSprite = GameObject.Instantiate(flowerSpritePrefab);
+        //flowerSprite.transform.parent = transform;
+        //flowerSprite.transform.localPosition = Vector3.zero;
 
-        pickFlowerColor();
+        //pickFlowerColor();
 
 
         for (int i = 0; i < numSpikes; i++)
@@ -120,7 +120,7 @@ public class CactusController : MonoBehaviour {
 			var sprite = child.GetChild (0);
 			// enable spike collisions while extended
 			sprite.GetComponent<Collider2D> ().enabled = true;
-			iTween.MoveBy (sprite.gameObject, iTween.Hash ("x", 0f, "y", 3f, "z", 0f, "oncomplete", "RetractSpikes", "oncompletetarget", gameObject, "time", spikeExpandSpeed));
+			iTween.MoveBy(sprite.gameObject, iTween.Hash ("x", 0f, "y", 3f, "z", 0f, "oncomplete", "RetractSpikes", "oncompletetarget", gameObject, "time", spikeExpandSpeed));
 		}
 	}
 
